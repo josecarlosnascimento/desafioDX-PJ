@@ -1,0 +1,35 @@
+insert into integrante (id, nome, franquia, funcao) values (1, 'Curcio Mardee', 'Indonesia', 'Atacante');
+insert into integrante (id, nome, franquia, funcao) values (2, 'Rudie Porcas', 'China', 'Meia E');
+insert into integrante (id, nome, franquia, funcao) values (3, 'Wood Worsfield', 'Venezuela', 'Zagueiro');
+insert into integrante (id, nome, franquia, funcao) values (4, 'Filberto Hessentaler', 'Australia', 'Meia D');
+insert into integrante (id, nome, franquia, funcao) values (5, 'Milty Aird', 'Sweden', 'Atacante');
+insert into integrante (id, nome, franquia, funcao) values (6, 'Tudor Cescot', 'Indonesia', 'Zagueiro');
+insert into integrante (id, nome, franquia, funcao) values (7, 'Quintus Honsch', 'Saint Barthelemy', 'Meia');
+insert into integrante (id, nome, franquia, funcao) values (8, 'Goraud Petch', 'Ukraine', 'Zagueiro');
+insert into integrante (id, nome, franquia, funcao) values (9, 'Raviv Alcido', 'Sudan', 'Atacante');
+insert into integrante (id, nome, franquia, funcao) values (10, 'Larisa Tutchener', 'Greece', 'Meia E');
+
+insert into time (id, nome, data) values (1,'Sao Paulo', '2024-11-10');
+insert into time (id, nome, data) values (2,'Corinthians', '2024-01-07');
+insert into time (id, nome, data) values (3,'Palmeiras', '2024-07-03');
+insert into time (id, nome, data) values (4, 'Santos', '2021-11-11');
+insert into time (id, nome, data) values (5,'Fortaleza', '2023-12-10');
+insert into time (id, nome, data) values (6,'Botafogo', '2024-02-20');
+insert into time (id, nome, data) values (7,'Bahia', '2024-08-20');
+insert into time (id, nome, data) values (8,'Athletico GO', '2024-05-13');
+insert into time (id, nome, data) values (9,'Athletico PA', '2024-04-11');
+insert into time (id, nome, data) values (10,'Figueirense', '2024-06-05');
+
+insert into composicao_time (id, time_id, integrante_id) values (1,1,1);
+insert into composicao_time (id, time_id, integrante_id) values (2,2,2);
+insert into composicao_time (id, time_id, integrante_id) values (3,3,3);
+insert into composicao_time (id, time_id, integrante_id) values (4,4,4);
+insert into composicao_time (id, time_id, integrante_id) values (5,5,5);
+insert into composicao_time (id, time_id, integrante_id) values (6,6,6);
+insert into composicao_time (id, time_id, integrante_id) values (7,7,7);
+insert into composicao_time (id, time_id, integrante_id) values (8,8,8);
+insert into composicao_time (id, time_id, integrante_id) values (9,9,9);
+insert into composicao_time (id, time_id, integrante_id) values (10,1,2);
+insert into composicao_time (id, time_id, integrante_id) values (11,1,3);
+insert into composicao_time (id, time_id, integrante_id) values (12,1,4);
+insert into composicao_time (id, time_id, integrante_id) values (13,1,5);
