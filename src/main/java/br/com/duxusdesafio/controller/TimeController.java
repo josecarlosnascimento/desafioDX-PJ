@@ -1,6 +1,5 @@
 package br.com.duxusdesafio.controller;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -45,6 +44,8 @@ public class TimeController {
 	@GetMapping("/times")
 	public String mostrarTime(Model model) {
 		Map<Time, List<ComposicaoTime>> times = composicaoTimeRepository.findAll().stream().collect(Collectors.groupingBy(c -> c.getTime()));
+		times.entrySet().stream().sorted((a,b) -> b.getKey().getId().compareTo(a.getKey().getId()));
+		
 		model.addAttribute("times", times);
 		return "times";
 	}
@@ -52,7 +53,7 @@ public class TimeController {
 	@GetMapping("/montar-time")
 	public String montarTime(Model model) {
 		integrantes =
-				apiService.buscarIntegrantesSemTimes()
+				apiService.buscarIntegrantesSemTimesEmUmaSemana()
 				.stream()
 				.toList();
 		

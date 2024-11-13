@@ -26,6 +26,7 @@ public class Time {
 	
 	@NotBlank(message = "Digite o nome do time")
 	private String nome;
+	
 	private LocalDate data = LocalDate.now();
 
 

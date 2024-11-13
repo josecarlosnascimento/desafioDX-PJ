@@ -87,15 +87,8 @@ public class ApiServiceTest {
 	@Test
 	public void devebuscarIntegrantesSemTimes() {
 		when(composicaoTimeRepository.findAll()).thenReturn(ComposicaoTimeUtil.listaComposicaoTime());
-		List<Integrante> integrantes = apiService.buscarIntegrantesSemTimes();
+		List<Integrante> integrantes = apiService.buscarIntegrantesSemTimesEmUmaSemana();
 		integrantes.forEach(d -> System.out.println(d.getNome()));
 	}
-	
-	
-//    * Vai retornar um Time, com a composição do time daquela data
-//    */
-//   public Time timeDaData(LocalDate data, List<Time> todosOsTimes){
-//       return todosOsTimes.stream().filter(time -> time.getData().equals(data)).findFirst().get();
-//   }
 
 }

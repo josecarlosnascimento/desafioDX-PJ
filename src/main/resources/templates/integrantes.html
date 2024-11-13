@@ -9,6 +9,15 @@
 	<div th:replace="fragments/header :: header"></div>
 	<div class="container">
 		<div>
+			<form action="#" th:action="@{/buscar}" method="get">
+			  <div class="form-group">
+			    <label for="exampleFormControlInput1">Nome</label>
+			    <input type="text" class="form-control" id="nome" name="nome" placeholder="Jose Carlos">
+				<input type="submit" class="btn btn-primary" value="Buscar">
+			  </div>
+		  	</form>
+		</div>
+		<div>
 		  <table class="table table-hover table-responsive-xl">
 		    <thead class="thead-light">
 		      <tr>

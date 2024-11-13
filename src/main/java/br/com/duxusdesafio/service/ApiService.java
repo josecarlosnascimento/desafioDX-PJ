@@ -135,7 +135,7 @@ public class ApiService {
     }
     
     
-    public List<Integrante> buscarIntegrantesSemTimes(){
+    public List<Integrante> buscarIntegrantesSemTimesEmUmaSemana(){
     	
     	List<Integrante> integrantes = new ArrayList<>();
     	
@@ -151,7 +151,25 @@ public class ApiService {
        		}
        	});
        	
+       	integrantes.addAll(buscarIntegrantesSemTime());
+       	
        	return integrantes;
+    }
+    
+    public List<Integrante> buscarIntegrantesSemTime(){
+    	List<Integrante> integrantesInseridos = integranteRepository.findAll();
+       	List<ComposicaoTime> composicoes = composicaoTimeRepository.findAll();
+       	
+       	for (int i = 0; i < integrantesInseridos.size(); i++) {
+       		for (ComposicaoTime composicaoTime : composicoes) {
+       			if(composicaoTime.getIntegrante().getId().equals(integrantesInseridos.get(i).getId())) {
+       				integrantesInseridos.remove(i);
+       			}
+       		}
+		}
+       	
+		return integrantesInseridos;
+    	
     }
 
 }

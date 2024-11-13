@@ -10,7 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.duxusdesafio.model.Integrante;
 import br.com.duxusdesafio.repository.IntegranteRepository;
@@ -25,7 +25,7 @@ public class IntegranteController {
 	@Autowired
 	private ApiService apiService;
 	
-	@GetMapping("/")
+	@GetMapping("/integrantes")
 	public String viewHomePage(Model model) {
 		model.addAttribute("integrantes", integranteRepository.findAll(Sort.by(Direction.DESC, "id")));
 		return "integrantes";
@@ -34,7 +34,7 @@ public class IntegranteController {
 	@GetMapping("/novo-integrante")
 	public String novoIntegrante(Model model) {
 		model.addAttribute("integrante", new Integrante());
-		model.addAttribute("integrantes", apiService.buscarIntegrantesSemTimes());
+		model.addAttribute("integrantes", apiService.buscarIntegrantesSemTimesEmUmaSemana());
 		return "novo-integrante";
 	}
 	
@@ -51,5 +51,11 @@ public class IntegranteController {
        integranteRepository.save(integrante);
 
        return "redirect:integrantes";
+   }
+   
+   @GetMapping("/buscar")
+   public String buscarIntegrantes(Model model, @RequestParam String nome) {
+		model.addAttribute("integrantes", integranteRepository.findAll(Sort.by(Direction.DESC, "id")).stream().filter(p -> p.getNome().contains(nome)).toList());
+		return "integrantes";
    }
 }
